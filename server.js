@@ -43,8 +43,6 @@ app.use("/crm/api/v1", auth_route);
 const user_route = require("./routes/user.routes")
 app.use("/crm/api/v1", user_route)
 
-console.log("This is how the case of the scenario and i love to be a part of the scenario")
-
 
 
 // Starting the Server
