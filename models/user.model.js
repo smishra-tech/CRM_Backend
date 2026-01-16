@@ -1,41 +1,42 @@
 const mongoose = require("mongoose");
-const constants = require("../utils/constants");
+const { userStatus } = require("../utils/constants");
 
 const userSchema = new mongoose.Schema({
-    name:{
+    name : {
+        type : String,
+        required : true
+    },
+    userId : {
         type : String,
         required : true,
+        unique : true
     },
-    userId:{
+    password : {
         type : String,
         required : true,
-        unique : true,
+        minLength : 7
     },
-    password:{
-        type : String,
-        required : true,
-        minLength : 7,
-    },
-    email:{
+    email : {
         type : String,
         required : true,
         unique : true,
         lowercase : true,
-        minLength : 10,
+        minLength : 10
     },
-    userType:{
+    userType : {
         type : String,
-        enum : [constants.userTypes.customer, constants.userTypes.engineer, constants.userTypes.admin],
+        enum : ["CUSTOMER", "ADMIN", "ENGINEER"],
         required : true,
-        default : constants.userTypes.customer,
+        default : "CUSTOMER"
     },
     userStatus : {
         type : String,
-        enum : [constants.userStatus.approved, constants.userStatus.pending, constants.userStatus.blocked],
+        enum : ["APPROVED", "PENDING", "BLOCKED"],
         required : true,
-        default : constants.userStatus.approved,
+        default : "APPROVED"
     }
-},{timestamps : true, versionKey : false});
 
-module.exports = mongoose.model("User", userSchema)
+}, {timestamps : ture});
+
+module.exports = mongoose.model("User", userSchema);
 
