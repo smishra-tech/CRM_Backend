@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
         default : "APPROVED"
     }
 
-}, {timestamps : ture});
+}, { timestamps: true , versionKey: false});
 
 module.exports = mongoose.model("User", userSchema);
 
