@@ -44,7 +44,6 @@ const user_route = require("./routes/user.routes")
 app.use("/crm/api/v1", user_route)
 
 
-
 // Starting the Server
 
 const PORT = process.env.PORT || 7777;

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { userStatus } = require("../utils/constants");
+const userStatus = require("../utils/constants");
 
 const userSchema = new mongoose.Schema({
     name : {

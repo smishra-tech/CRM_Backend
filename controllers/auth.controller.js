@@ -4,16 +4,18 @@ const bcrypt = require("bcryptjs");
 const constants = require("../utils/constants");
 const jwt = require("jsonwebtoken");
 const config = require("../configs/auth.config")
+
+
 // Logic to the Signup ---.> Customer(A) | Engineer(P) | Admin(P)
 
 exports.signUp = async (req, res) => {
 
     let userStatus = req.body.userStatus;
 
-    if(!req.body.userType || req.body.userType == constants.userTypes.customer){
-        userStatus = constants.userStatus.approved;
+    if(!req.body.userType || req.body.userType == "CUSTOMER"){
+        userStatus = "CONFIRMED";
     }else {
-        userStatus = constants.userStatus.pending;
+        userStatus = "PENDING";
     }
 
 
