@@ -52,3 +52,5 @@ app.listen(PORT, () => {
     console.log(`Server is listening to the port num : ${PORT}`)
 })
 
+
+console.log("hello js")
